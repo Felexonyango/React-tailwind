@@ -14,8 +14,8 @@ const RenderPostList = (props: { body: string; title: string }) => {
 const Post: React.FC<IPosts> = () => {
 
   function getposts(){
-   return fetch('https://jsonplaceholder.typicode.com/posts')
-   .then((res)=>res.json())
+   return axios('https://jsonplaceholder.typicode.com/posts')
+   .then((res)=>res.data)
    .catch((err)=>console.log(err))
   };
   const { isLoading, isError, data, error } = useQuery(['posts'], getposts)
